@@ -107,3 +107,4 @@ No dependencies beyond the standard library.
 Not claimed: that classical logic is wrong — it is the correct carrier wherever the riders are enforced by construction, which is mathematics, and pricing them at zero there is accurate. Not claimed: that MP fails "in reality" — it fails in specifiable configurations with witnesses printed above. Not claimed: that the philosophical attributions are settled — they are PRESUMED framings, and the enumerations stand without them. Not claimed: that weakest-tier-first routing is the uniquely correct blame assignment — it is a declared policy, explicit where the classical default is implicit.
 
 MIT license. Trust infrastructure should not be paywalled.
+-James pugmire
