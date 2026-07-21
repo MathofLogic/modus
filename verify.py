@@ -64,6 +64,27 @@ def main():
               "paid": s_paid}, chain)
 
     frac = 100 * paid / total
+    # THE HISTORY HEARING (before the writer speaks): the committed
+    # manifest must replay by seal arithmetic alone. Regenerating
+    # first and comparing after validates the writer, not the history
+    # — the blind spot the Atlas named here on its first day.
+    out = pathlib.Path(__file__).parent / "manifests"
+    mp = out / "modus_manifest.json"
+    if mp.exists():
+        try:
+            prior = json.loads(mp.read_text())
+        except Exception:
+            prior = None
+        if not (isinstance(prior, list) and replay(prior)):
+            print("\n  HISTORY: committed manifest does NOT replay — "
+                  "possible tampering;")
+            print("  file preserved as evidence; refusing to "
+                  "regenerate over it.")
+            fails.append("manifest-history")
+            prior = None
+        else:
+            print(f"\n  history: committed manifest replays "
+                  f"({len(prior)} seals) — proceeding")
     body = {"claims": total, "paid": paid,
             "paid_fraction": round(frac, 1),
             "verdict": ("PASS" if not fails else "FAIL") + "/STIPULATED",
@@ -81,9 +102,11 @@ def main():
                 "policy, explicit where the classical default is "
                 "implicit."]}
     seal(body, chain)
-    out = pathlib.Path(__file__).parent / "manifests"
-    out.mkdir(exist_ok=True)
-    (out / "modus_manifest.json").write_text(json.dumps(chain, indent=1))
+    if "manifest-history" not in fails:
+        out.mkdir(exist_ok=True)
+        new = json.dumps(chain, indent=1)
+        if not mp.exists() or mp.read_text() != new:
+            mp.write_text(new)
 
     print("\n  " + "=" * 68)
     print(f"  DOCUMENT PAID FRACTION: {paid}/{total} claims "
