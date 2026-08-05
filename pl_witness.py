@@ -1,23 +1,23 @@
 """
 pl_witness — witness counting for law engines.
 
-THE DEFECT
-A law computed as a bare boolean cannot distinguish "held in every case"
-from "the guard never engaged". Measured: a carrier with an EMPTY
-designated set scores as well as strong Kleene, because four of the five
-guarded laws pass with their guard inert.
+A law is checked over a range of cases. Laws quantified over the VALUE
+SPACE always have len(V) witnesses. Laws quantified, directly or through a
+guard, over the DESIGNATED SET have as many as that set admits — and a
+designated set that is empty or exhaustive renders those guards inert, so
+the law returns a verdict without having been tested.
 
-Only laws quantified over the VALUE SPACE are immune. Laws quantified,
-directly or through a guard, over the DESIGNATED SET are all vulnerable.
+    witnesses = the number of cases in which the law could have failed
 
-THE REPAIR
-Report, alongside each verdict, the number of cases in which the law COULD
-have failed. Zero witnesses is coverage zero, which the tier rule already
-grades UNPAID. Nothing new is invented.
+Zero witnesses is coverage zero, which the tier rule grades UNPAID. A law
+that was never tested does not read as one that passed.
 
-NOT AN ADMISSION GATE. No carrier is refused. Pricing alone restores the
-discrimination; a gate built from how classical logic behaves would refuse
-real logics, which is a second defect and not a repair.
+GUARDED holds the laws whose witness count depends on the designated set.
+`distinguishes` is the regression: sound carriers must report zero UNPAID
+laws, degenerate ones at least one.
+
+No carrier is refused. Pricing restores the discrimination; a gate built
+from how classical logic behaves would refuse real logics.
 """
 GUARDED = {"LNC", "LEM", "NoGlut", "MP", "MT"}
 
