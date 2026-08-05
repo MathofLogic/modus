@@ -1,0 +1,58 @@
+[
+ {
+  "section": "Mechanics of detachment",
+  "claims": 6,
+  "paid": 4,
+  "sha_prev": "GENESIS",
+  "sha": "1bf6e0bcdca21ebd"
+ },
+ {
+  "section": "Mechanics of the inverter",
+  "claims": 4,
+  "paid": 4,
+  "sha_prev": "1bf6e0bcdca21ebd",
+  "sha": "beb5394d72dac641"
+ },
+ {
+  "section": "Quantitative regime",
+  "claims": 4,
+  "paid": 2,
+  "sha_prev": "beb5394d72dac641",
+  "sha": "516e91889a6c9ce2"
+ },
+ {
+  "section": "Reification and the riders",
+  "claims": 5,
+  "paid": 1,
+  "sha_prev": "516e91889a6c9ce2",
+  "sha": "26a784de13d05ec8"
+ },
+ {
+  "section": "The truth presumption",
+  "claims": 4,
+  "paid": 0,
+  "sha_prev": "26a784de13d05ec8",
+  "sha": "9781bb49daeca374"
+ },
+ {
+  "section": "The engine (inference with the meter running)",
+  "claims": 6,
+  "paid": 5,
+  "sha_prev": "9781bb49daeca374",
+  "sha": "53f4609fbe2a79a6"
+ },
+ {
+  "claims": 29,
+  "paid": 16,
+  "paid_fraction": 55.2,
+  "verdict": "PASS/STIPULATED",
+  "non_claims": [
+   "NOT claimed: that classical logic is wrong \u2014 it is the correct carrier wherever the riders are enforced by construction, i.e. mathematics.",
+   "NOT claimed: that MP fails 'in reality' \u2014 it fails in specifiable configurations, witnesses printed above.",
+   "NOT claimed: that the philosophical attributions are settled \u2014 they are PRESUMED framings; the enumerations stand without them.",
+   "NOT claimed: that weakest-tier-first routing is the unique correct blame assignment \u2014 it is a declared policy, explicit where the classical default is implicit."
+  ],
+  "sha_prev": "53f4609fbe2a79a6",
+  "sha": "7a079787efc15e32"
+ }
+]
