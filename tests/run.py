@@ -107,3 +107,25 @@ if failures:
 print(f"GATE: GREEN — {len(CHECKS)} checks, {paid}/{len(results)} "
       f"ledger claims paid ({100 * paid / len(results):.1f}%), engine "
       "riders enforced, manifest sealed and replayed.")
+
+
+# ── VACUITY CANARY ────────────────────────────────────────────────────
+# Regression for the defect where a carrier with an empty designated set
+# scored as well as strong Kleene, because four of the five guarded laws
+# passed with their guard inert. A law that holds over zero witnesses was
+# never tested, and must not read as a pass.
+try:
+    import os as _os, sys as _sys
+    _sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+    from pl_witness import distinguishes as _dist
+    _V = (0.0, 0.5, 1.0)
+    _neg = lambda a: 1.0 - a
+    _ok, _why = _dist(_V, _neg, min, max, (1.0,), [(), _V])
+    print(f"  vacuity canary: degenerate carriers distinguishable : "
+          f"{'yes' if _ok else 'NO — ' + _why}")
+    if not _ok:
+        print("  BUILD FAILED — vacuity regression")
+        raise SystemExit(1)
+except ImportError:
+    print("  vacuity canary: pl_witness not found")
+    raise SystemExit(1)
