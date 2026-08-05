@@ -1,0 +1,10 @@
+[project]
+name = "modus"
+version = "1.0.0"
+description = "MP and MT as designation-closure properties, the inverter battery, and a provenance-carrying detachment engine"
+requires-python = ">=3.10"
+dependencies = []
+license = {text = "MIT"}
+
+[tool.setuptools]
+packages = ["modus"]
